@@ -2,11 +2,16 @@ import React, { useState } from 'react'
 
 export default function Input(props) {
 
+    //creating a useState hook through which we will update the input text
     const [Text, setText] = useState("Hello I am dummy text");
+    
+    //function which is  handling the update of text
     const updateTextupper = () => {
         let uppertext = Text.toUpperCase();
         setText(uppertext);
     }
+
+    //Function which is updating the onchange text
     const handleonChange = (event) => {
         setText(event.target.value);
     }

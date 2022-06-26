@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 
 
 export default function Navbar(props) {
-    const [Text, setText] = useState("Hello I am dummy text");
 
     return (
         <nav className="navbar navbar-expand-lg bg-light">
@@ -38,5 +37,7 @@ export default function Navbar(props) {
     )
 
 }
+
+//setting the default value and type of props
 Navbar.propTypes = { Title: PropTypes.string }
 Navbar.defaultProps = { Title: "Text_Switcher" }
