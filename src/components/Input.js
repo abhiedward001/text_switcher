@@ -14,10 +14,12 @@ export default function Input(props) {
     const updateTextupper = () => {
         let uppertext = Text.toUpperCase();
         setText(uppertext);
+        props.showAlert("Text converted to UPPERCASE","success");
     }
     const updateTextlower = () => {
         let lowertext = Text.toLowerCase();
         setText(lowertext);
+        props.showAlert("Text converted to LOWERCASE","success");
     }
 
     //Function which is updating the onchange text
