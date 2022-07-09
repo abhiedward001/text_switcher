@@ -4,12 +4,13 @@ import React, { useState } from 'react'
 
 export default function About() {
     
+    // this state is used for changing the theme
     const [mystyle, setMystyle] = useState({
         color:'black',
         backgroundColor:'white'
     });
     
-    // const [first, setfirst] = useState();
+    const [switchbtn, setSwitchbtn] = useState("Enable dark mode");// this is state used for changing button text
     const handleColormode=()=>{
        
         if(mystyle.color==='white'){
@@ -20,13 +21,16 @@ export default function About() {
             backgroundColor:'white'
         });
         
+        setSwitchbtn("Enable Dark Mode");
+            
         }
         else{
             setMystyle({
                 color:'white',
                 backgroundColor:'black'
             });
-            
+            setSwitchbtn("Enable Light Mode");
+           
            
         }
     }
@@ -37,13 +41,13 @@ export default function About() {
             <div className="container my-5" style={mystyle}>
                 <div className="accordion my-3" id="accordionExample" style={mystyle} >
                     <div className="accordion-item" style={mystyle}>
-                        <h2 className="accordion-header" id="headingOne">
+                        <h2 className="accordion-header" id="headingOne"  >
                             <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"  style={mystyle}>
                                 Accordion Item #1
                             </button>
                         </h2>
                         <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div className="accordion-body">
+                            <div className="accordion-body" >
                                 <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classNamees that we use to mystyle each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                             </div>
                         </div>
@@ -73,7 +77,7 @@ export default function About() {
                         </div>
                     </div>
                 </div>
-                <button className="btn btn-primary my-3" onClick={handleColormode}>Enable dark mode</button>
+                <button className="btn btn-primary my-3" onClick={handleColormode}>{switchbtn}</button>
             </div>
 
         </>
