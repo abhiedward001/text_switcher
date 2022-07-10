@@ -5,7 +5,12 @@ import Input from './components/Input'
 import About from './components/About';
 import Alert from './components/Alert';
 import { useState } from 'react';
-
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+} from "react-router-dom";
 
 function App() {
 
@@ -56,13 +61,18 @@ function App() {
   }
 
   return (
-    <>
+
+    <Router>
 
       <Navbar Title={"Text_Switcher"} mode={navmode} toggle_navbar={toggle_navbar}></Navbar>
       <Alert alert={alert}> </Alert>
-      <Input Heading={"Enter Your Text Below :-"} mode={mode} showAlert={showAlert}> </Input>
-      {/* <About></About> */}
-    </>
+
+      <Routes>
+        <Route exact path="/" element={<Input Heading={"Enter Your Text Below :-"} mode={mode} showAlert={showAlert}> </Input>} />
+        <Route exact path="/About" element={<About />} />
+      </Routes>
+
+    </Router>
   );
 }
 
